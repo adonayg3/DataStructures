@@ -3,11 +3,12 @@ using Xunit;
 
 namespace DataStructures.Test
 {
-    public class UnitTest1
+    public class Test
     {
         [Fact]
         public void Test1()
         {
+            Assert.True(true);
         }
     }
 }
