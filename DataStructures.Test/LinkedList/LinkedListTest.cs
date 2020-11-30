@@ -219,7 +219,8 @@ namespace DataStructures.Test.LinkedList
       
           for (var i = 0; i < randNums.Count; i++) {
             var rmIndex = (int) (_list.Size() * Rng.NextDouble());
-            // Linked list doesn't have RemoveAt implementation, but has been added using Extension Method below
+            // Linked list doesn't have RemoveAt implementation,
+            // but has been added using Extension Method in linkedList folder
             var num1 = inBuiltLinkedList.RemoveAt(rmIndex);
             var num2 = _list.RemoveAt(rmIndex);
             Assert.Equal(num1.Value, num2);
@@ -306,27 +307,6 @@ namespace DataStructures.Test.LinkedList
           list[k] = list[n];  
           list[n] = value;  
         }  
-      }
-    }
-    
-    public static class ExtensionMethods
-    {
-      public static LinkedListNode<T> RemoveAt<T>(this LinkedList<T> list, int index)
-      {
-        LinkedListNode<T> currentNode = list.First;
-        for (int i = 0; i <= index && currentNode != null; i++)
-        {
-          if (i != index)
-          {
-            currentNode = currentNode.Next;
-            continue;
-          }
-
-          list.Remove(currentNode);
-          return currentNode;
-        }
-
-        throw new IndexOutOfRangeException();
       }
     }
 }
